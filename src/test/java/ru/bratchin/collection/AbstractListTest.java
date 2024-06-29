@@ -94,7 +94,7 @@ public abstract class AbstractListTest {
             }
 
             assertThatThrownBy(() -> list.add(null))
-                    .isInstanceOf(OutOfMemoryError.class)
+                    .isInstanceOf(IllegalStateException.class)
                     .hasMessageContaining("Достигнут максимально возможный размер массива");
         }
     }

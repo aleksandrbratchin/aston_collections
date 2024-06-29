@@ -28,7 +28,7 @@ public class MyArrayList<E> extends MyAbstractList<E> {
      * Добавляет элемент в конец списка.
      *
      * @param element элемент для добавления в список
-     * @throws OutOfMemoryError при достижении максимально возможного размера массива
+     * @throws IllegalStateException при достижении максимально возможного размера массива
      */
     public void add(E element) {
         ensureCapacity(size + 1);
@@ -41,7 +41,7 @@ public class MyArrayList<E> extends MyAbstractList<E> {
      * @param index   индекс, по которому следует вставить элемент
      * @param element элемент для добавления в список
      * @throws IndexOutOfBoundsException если индекс выходит за пределы допустимого диапазона
-     * @throws OutOfMemoryError при достижении максимально возможного размера массива
+     * @throws IllegalStateException при достижении максимально возможного размера массива
      */
     public void add(int index, E element) {
         checkIndex(index);
@@ -105,13 +105,13 @@ public class MyArrayList<E> extends MyAbstractList<E> {
      * Увеличивает емкость массива, если необходимо.
      *
      * @param minCapacity минимальная необходимая емкость
-     * @throws OutOfMemoryError при достижении максимально возможного размера массива
+     * @throws IllegalStateException при достижении максимально возможного размера массива
      */
     private void ensureCapacity(int minCapacity) {
         if (minCapacity > elements.length) {
             int newCapacity;
             if (elements.length == MAX_ARRAY_SIZE) {
-                throw new OutOfMemoryError("Достигнут максимально возможный размер массива");
+                throw new IllegalStateException("Достигнут максимально возможный размер массива");
             }
             try {
                 newCapacity = Math.multiplyExact(elements.length, 2);

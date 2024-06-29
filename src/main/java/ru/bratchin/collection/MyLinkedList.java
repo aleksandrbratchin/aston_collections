@@ -17,7 +17,7 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
      * Добавляет элемент в конец списка.
      *
      * @param element элемент для добавления в список
-     * @throws OutOfMemoryError при достижении максимально возможного размера списка
+     * @throws IllegalStateException при достижении максимально возможного размера списка
      */
     @Override
     public void add(E element) {
@@ -39,7 +39,7 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
      * @param index   индекс, по которому следует вставить элемент
      * @param element элемент для добавления в список
      * @throws IndexOutOfBoundsException если индекс выходит за пределы допустимого диапазона
-     * @throws OutOfMemoryError при достижении максимально возможного размера списка
+     * @throws IllegalStateException при достижении максимально возможного размера списка
      */
     @Override
     public void add(int index, E element) {
@@ -139,11 +139,11 @@ public class MyLinkedList<E> extends MyAbstractList<E> {
     /**
      * Проверяет, достигнут ли максимально возможный размер списка.
      *
-     * @throws OutOfMemoryError если достигнут максимально возможный размер списка
+     * @throws IllegalStateException если достигнут максимально возможный размер списка
      */
     private void checkSize() {
         if (size == Integer.MAX_VALUE) {
-            throw new OutOfMemoryError("Достигнут максимально возможный размер списка");
+            throw new IllegalStateException("Достигнут максимально возможный размер списка");
         }
     }
 
